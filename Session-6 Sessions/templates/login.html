@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<form action="" method="post">
+    {{form.hidden_tag()}}
+    <br>
+    <div>
+        {{form.username.label}}
+        {{form.username}}
+        {% if form.username.errors %}
+            {% for error in form.username.errors %}
+                <div  style="color: red;">{{error}}</div>
+            {% endfor %}
+
+        {% endif %}
+    </div>
+    <br>
+
+    <div>
+        {{form.password.label}}
+        {{form.password}}
+        {% if form.password.errors %}
+            {% for error in form.password.errors %}
+                <div>{{error}}</div>
+            {% endfor %}
+
+        {% endif %}
+    </div>
+    <br>
+
+
+
+    <div>
+        {{form.submit()}}
+    </div>
+    <br>
+
+    <div>
+        <p>Redirect to home page :<a href="{{ url_for('home') }}"> Home </a></p>
+    </div>
+
+</form>
+
+
+{% endblock content %}
